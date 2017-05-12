@@ -6,8 +6,12 @@ class TableHeader extends Component {
             <tr>
                 <th>#</th>
                 <th>Camper Name</th>
-                <th>Points in past 30 days</th>
-                <th>All time points</th>
+                <th>
+                    <button onClick={(e) => this.props.handleClick(e)} value="recent" >Points in past 30 days</button>
+                </th>
+                <th>
+                    <button onClick={(e) => this.props.handleClick(e)} value="alltime" >All time points</button> 
+                </th>
             </tr>
         )
     }

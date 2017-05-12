@@ -9,10 +9,42 @@ class Table extends Component {
         this.state = {
             sortByRecent: true
         }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     handleClick(e) {
-        {/* handles which column has been selected to order results by */}
+        e.preventDefault()
+        console.log(e.target.value)
+        
+        if(e.target.value === 'recent') {
+            data.sort((a,b) => {
+                if(parseInt(a.recent, 10) - parseInt(b.recent, 10) < 0) {
+                    return 1
+                } else if (parseInt(a.recent, 10) - parseInt(b.recent, 10) === 0) {
+                    return 0
+                } else {
+                    return -1
+                }
+            })
+
+            this.setState({
+                sortByRecent: true
+            })
+        } else {
+            data.sort((a,b) => {
+                if(parseInt(a.alltime, 10) - parseInt(b.alltime, 10) < 0) {
+                    return 1
+                } else if (parseInt(a.alltime, 10) - parseInt(b.alltime, 10) === 0) {
+                    return 0
+                } else {
+                    return -1
+                }
+            })
+
+            this.setState({
+                sortByRecent: false
+            })
+        }
     }
 
     render() {
@@ -23,9 +55,9 @@ class Table extends Component {
         }
 
         return (
-            <table>
+            <table className="table table-hover table-bordered">
                 <tbody>
-                    <TableHeader />
+                    <TableHeader handleClick={this.handleClick} />
                     {rows}
                 </tbody>
             </table>

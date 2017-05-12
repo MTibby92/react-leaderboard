@@ -22,3 +22,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.avatar_image {
+  height: 50px;
+  width: 50px;
+  padding: 0px;
+  margin: 0px;
+}
