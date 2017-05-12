@@ -11,7 +11,9 @@ class TableRow extends Component {
         return (
             <tr>
                 <td>{num}</td>
-                <td><img src={avatar} alt="user avatar"/><a href={`www.freecodecamp.com/${name}`} target="_blank"></a></td>
+                <td>
+                    <img src={avatar} alt="user avatar"/><a href={`www.freecodecamp.com/${name}`} target="_blank">{name}</a>
+                </td>
                 <td>{recent}</td>
                 <td>{alltime}</td>
             </tr>

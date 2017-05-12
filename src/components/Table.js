@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
-import recent from '../data/30days'
-import alltime from '../data/alltime'
+import data from '../data/data'
 
 class Table extends Component {
     constructor() {
@@ -17,13 +16,18 @@ class Table extends Component {
     }
 
     render() {
-        const rows
-        {/* determine how to pull in data from two different sets into unified row item and iterate through */}
+        const rows = []
+
+        for (let i=0; i < data.length; i++) {
+            rows.push(<TableRow key={i+1} num={i+1} avatar={data[i].img} name={data[i].username} recent={data[i].recent} alltime={data[i].alltime} />)
+        }
 
         return (
             <table>
-                <TableHeader />
-                {/* implementation all of the rows with data */}
+                <tbody>
+                    <TableHeader />
+                    {rows}
+                </tbody>
             </table>
         )
     }
